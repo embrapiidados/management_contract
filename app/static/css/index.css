@@ -1,0 +1,190 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BASE */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #f4f5f7;
+    font-family: "Titillium Web", sans-serif;
+    overflow: hidden;
+}
+
+
+
+.container__local {
+    /* background-color: pink; */
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 55% auto;
+    gap: 10px;
+    border-radius: 10px;
+}
+
+.box_index {
+    display: grid;
+    grid-template-rows: 10vh 80vh auto;
+    padding: 20px;
+    height: 100%;
+    min-height: 0; /* 🔥 ESSENCIAL para permitir que .box_index_content role */
+}
+
+
+
+.box_index_tabs {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   gap: 10px;
+   align-items: center;
+}
+
+.box_index_tab {
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.box_index_tab:hover {
+    cursor: pointer;
+    background-color: #095bcf68;
+    /* color: white; */
+}
+
+.box_index_tab.active {
+    background-color: #0b264d;
+    color: white;
+}
+
+.box_index_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    min-height: 0;
+    padding: 0 5px 0 0;
+}
+
+
+
+
+.cardAccount {
+    background-color: #e4e4e4;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s ease; /* animação suave */
+}
+
+.cardAccount:hover {
+    transform: scale(1.01); /* cresce 3% */
+    cursor: pointer;        /* opcional: indica que é clicável */
+}
+
+.cardAccount__description {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 35% 35% auto;
+    gap: 5px;
+}
+
+.cardAccount__description_part {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardAccount__description_part.balance {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.cardAccount__balance {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.cardAccount__balance_value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.cardAccount__summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardAccount__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.cardAccount__subtitle {
+    text-align: right;
+
+}
+
+
+.box_index_footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 10px 10px 0 0;
+}
+
+
+.box_detail {
+    display: grid;
+    grid-template-rows: 10vh auto;
+
+    border-radius: 10px;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+    background-color: #b8bade;
+}
+
+
+
+
+
+
+
+
+/* Para navegadores baseados em WebKit */
+.box_index_content::-webkit-scrollbar {
+    width: 8px; /* largura da barra */
+}
+
+.box_index_content::-webkit-scrollbar-track {
+    background: transparent; /* fundo da barra */
+}
+
+.box_index_content::-webkit-scrollbar-thumb {
+    background-color: #48599161;    /* cor da barra de rolagem */
+    border-radius: 10px;       /* borda arredondada */
+    border: 2px solid transparent; /* cria espaçamento interno */
+    background-clip: content-box;
+}
+
+.box_index_content::-webkit-scrollbar-thumb:hover {
+    background-color: #666; /* cor ao passar o mouse */
+}

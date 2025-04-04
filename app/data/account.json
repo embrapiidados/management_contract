@@ -1,0 +1,22 @@
+[
+    {
+      "id":1,
+      "bank":"",
+      "agency":"",
+      "account":"",
+      "account_digit":"",
+      "date_open": "",
+      "account_type":"",
+      "macrocontrato_id":"",
+      "contrato_id":"",
+      "eixo_id":"",
+      "parceiro_id":"",
+      "parceiro_cnpj_id":"",
+      "balance":"",
+      "balance_date":"",
+      "description":"",
+      "responsability_sector":"",
+      "responsability_person_for_create":"",
+      "process_proton_create":""
+    }
+]

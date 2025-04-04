@@ -1,0 +1,15 @@
+[
+    {
+      "id":1,
+      "id_partinership": "",
+      "cnpj":"",
+      "data_abertura":"",
+      "razao_social":"",
+      "natureza_juridica":"",
+      "cnae_primario":"",
+      "zip_code": "",
+      "uf_state": "",
+      "city": "",
+      "address":""
+    }
+]
