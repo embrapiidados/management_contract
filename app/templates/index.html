@@ -10,217 +10,118 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
 </head>
 <body>
-    <div class="container__local">
-        <div class="box_index">
-            <div class="box_index_tabs">
-                <span class="box_index_tab active">Contas</span>
-                <span class="box_index_tab">Contratos</span>
-                <span class="box_index_tab">Parceiros</span>
+    <div class="container_local">
+        
+        <!-- Header -->
+        <div class="container_header">
+            <div class="header_image">
+                <img src="{{ url_for('static', filename='images/marca_embrapii_onde_verde.png') }}" alt="Marca Embrapii" >
             </div>
-            <div class="box_index_content">
+            <div class="header_text">
+                <span class="header_text_subtitle">Gestão de </span>
+                <span class="header_text_title">Contas e Contratos</span>
+            </div>  
+        </div>
+        
+        <!-- Content -->
+        <div class="container_content">
+            
+            <!-- Accounts list -->
+            <div class="content_index">
+                            
+                <div class="box_index_tabs">
+                    <span class="box_index_tab active">Contas</span>
+                    <span class="box_index_tab">Contratos</span>
+                    <span class="box_index_tab">Parceiros</span>
+                </div>
+ 
+                <div class="box_index_content">
 
-                <div class="cardAccount">
-                    <div class="cardAccount__title">
-                        🟢 BB - Ag: 1607 - Conta: 6327-4
-                    </div>
-                    <div class="cardAccount__description">
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Data de Abertura: 01/01/2020</span>
-                            <span class="cardAccount__text">Tipo de Conta: Administrativo</span>
-                            <span class="cardAccount__text">Macrocontrato: Contrato de Gestão</span>
-
-                        </div>
-
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Contrato: NSA</span>
-                        <span class="cardAccount__text">Eixo: NSA</span>
-                        <span class="cardAccount__text">Parceiro: MCTI, MEC, MS, MDIC</span>
-                        </div>
-
-                        <div class="cardAccount__description_part balance"> 
-                            <span> 
-                                Saldo em 04/04/2025:
-                            </span>
-                            <span class="cardAccount__balance_value">
-                                R$ 135.334.424,44
-                            </span>
+                    {% for account in accounts %}
+                    <div class="cardAccount">
+                        <div class="cardAccount__title">
+                            {% if account.status == "Ativo" %}
+                                🟢
+                            {% else %}
+                                🔴
+                            {% endif %}
+                            {{ account.bank }} - Ag: {{ account.agency }} - Conta: {{ account.account }}-{{ account.account_digit }}
                         </div>
                         
-                    </div>
+                        <div class="cardAccount__description">
+                            <div class="cardAccount__description_part">
+                                <span class="cardAccount__text">Data de Abertura: {{ account.date_open }}</span>
+                                <span class="cardAccount__text">
+                                    Tipo de Conta: 
+                                    <b style="color: {% if account.account_type == 'Administrativo' %}blue{% else %}inherit{% endif %};">
+                                      {{ account.account_type }}
+                                    </b>
+                                </span>
+                                  
+                                <span class="cardAccount__text">Macrocontrato: {{ account.macrocontrato }}</span>
 
-                </div>
+                            </div>
 
-                <div class="cardAccount">
-                    <div class="cardAccount__title">
-                        🟢 BB - Ag: 1607 - Conta: 6327-4
-                    </div>
-                    <div class="cardAccount__description">
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Data de Abertura: 01/01/2020</span>
-                            <span class="cardAccount__text">Tipo de Conta: Administrativo</span>
-                            <span class="cardAccount__text">Macrocontrato: Contrato de Gestão</span>
+                            <div class="cardAccount__description_part">
+                                <span class="cardAccount__text">Contrato: {{ account.contrato }}</span>
+                            <span class="cardAccount__text">Eixo: {{ account.eixo }}</span>
+                            <span class="cardAccount__text">Parceiro: {{ account.parceiro }}</span>
+                            </div>
 
-                        </div>
-
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Contrato: NSA</span>
-                        <span class="cardAccount__text">Eixo: NSA</span>
-                        <span class="cardAccount__text">Parceiro: MCTI, MEC, MS, MDIC</span>
-                        </div>
-
-                        <div class="cardAccount__description_part balance"> 
-                            <span> 
-                                Saldo em 04/04/2025:
-                            </span>
-                            <span class="cardAccount__balance_value">
-                                R$ 135.334.424,44
-                            </span>
-                        </div>
-                        
-                    </div>
-
-                </div>
-
-                <div class="cardAccount">
-                    <div class="cardAccount__title">
-                        🟢 BB - Ag: 1607 - Conta: 6327-4
-                    </div>
-                    <div class="cardAccount__description">
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Data de Abertura: 01/01/2020</span>
-                            <span class="cardAccount__text">Tipo de Conta: Administrativo</span>
-                            <span class="cardAccount__text">Macrocontrato: Contrato de Gestão</span>
-
-                        </div>
-
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Contrato: NSA</span>
-                        <span class="cardAccount__text">Eixo: NSA</span>
-                        <span class="cardAccount__text">Parceiro: MCTI, MEC, MS, MDIC</span>
-                        </div>
-
-                        <div class="cardAccount__description_part balance"> 
-                            <span> 
-                                Saldo em 04/04/2025:
-                            </span>
-                            <span class="cardAccount__balance_value">
-                                R$ 135.334.424,44
-                            </span>
+                            <div class="cardAccount__description_part balance"> 
+                                <span> 
+                                    Saldo em {{ account.balance_date }}:
+                                </span>
+                                <span class="cardAccount__balance_value">
+                                    R$ {{ "{:,.2f}".format(account.balance) }}
+                                </span>
+                            </div>
+                            
                         </div>
                         
-                    </div>
 
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+                <div class="box_index_footer">
+                    <button type="button" class="btn btn-new">Nova Conta</button>
+                    <button type="button" class="btn btn-new">Exportar dados</button>
                 </div>
 
-                <div class="cardAccount">
-                    <div class="cardAccount__title">
-                        🟢 BB - Ag: 1607 - Conta: 6327-4
-                    </div>
-                    <div class="cardAccount__description">
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Data de Abertura: 01/01/2020</span>
-                            <span class="cardAccount__text">Tipo de Conta: Administrativo</span>
-                            <span class="cardAccount__text">Macrocontrato: Contrato de Gestão</span>
-
-                        </div>
-
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Contrato: NSA</span>
-                        <span class="cardAccount__text">Eixo: NSA</span>
-                        <span class="cardAccount__text">Parceiro: MCTI, MEC, MS, MDIC</span>
-                        </div>
-
-                        <div class="cardAccount__description_part balance"> 
-                            <span> 
-                                Saldo em 04/04/2025:
-                            </span>
-                            <span class="cardAccount__balance_value">
-                                R$ 135.334.424,44
-                            </span>
-                        </div>
-                        
-                    </div>
-
-                </div>
-
-                <div class="cardAccount">
-                    <div class="cardAccount__title">
-                        🟢 BB - Ag: 1607 - Conta: 6327-4
-                    </div>
-                    <div class="cardAccount__description">
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Data de Abertura: 01/01/2020</span>
-                            <span class="cardAccount__text">Tipo de Conta: Administrativo</span>
-                            <span class="cardAccount__text">Macrocontrato: Contrato de Gestão</span>
-
-                        </div>
-
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Contrato: NSA</span>
-                        <span class="cardAccount__text">Eixo: NSA</span>
-                        <span class="cardAccount__text">Parceiro: MCTI, MEC, MS, MDIC</span>
-                        </div>
-
-                        <div class="cardAccount__description_part balance"> 
-                            <span> 
-                                Saldo em 04/04/2025:
-                            </span>
-                            <span class="cardAccount__balance_value">
-                                R$ 135.334.424,44
-                            </span>
-                        </div>
-                        
-                    </div>
-
-                </div>
-
-                <div class="cardAccount">
-                    <div class="cardAccount__title">
-                        🟢 BB - Ag: 1607 - Conta: 6327-4
-                    </div>
-                    <div class="cardAccount__description">
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Data de Abertura: 01/01/2020</span>
-                            <span class="cardAccount__text">Tipo de Conta: Administrativo</span>
-                            <span class="cardAccount__text">Macrocontrato: Contrato de Gestão</span>
-
-                        </div>
-
-                        <div class="cardAccount__description_part">
-                            <span class="cardAccount__text">Contrato: NSA</span>
-                        <span class="cardAccount__text">Eixo: NSA</span>
-                        <span class="cardAccount__text">Parceiro: MCTI, MEC, MS, MDIC</span>
-                        </div>
-
-                        <div class="cardAccount__description_part balance"> 
-                            <span> 
-                                Saldo em 04/04/2025:
-                            </span>
-                            <span class="cardAccount__balance_value">
-                                R$ 135.334.424,44
-                            </span>
-                        </div>
-                        
-                    </div>
-
-                </div>
-
-
-                
+        
             </div>
-            <div class="box_index_footer">
-                <button type="button" class="btn btn-primary">Nova Conta</button>
-                <button type="button" class="btn btn-warning">Exportar dados</button>
+
+            <!-- Detail Account -->
+            <div class="detail">
+                <div class="detail_header">
+                    <div class="detail_header_title">
+                        🟢 BB - Ag: 1607 - Conta: 6327-4
+                    </div>
+                </div>
+                <div>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Identificação da Conta
+                            </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
         </div>
 
-
-        <div class="box_detail">
-            <h1>Box Detail</h1>
-        </div>
     </div>
 </body>
 </html>

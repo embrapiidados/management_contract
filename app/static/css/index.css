@@ -12,33 +12,82 @@ html, body {
 }
 
 body {
-    margin: 0 !important;
-    padding: 0 !important;
-    background-color: #f4f5f7;
+    background-color: var(--background-color);
     font-family: "Titillium Web", sans-serif;
     overflow: hidden;
 }
 
 
 
-.container__local {
+.container_local {
     /* background-color: pink; */
     height: 100%;
     width: 100%;
-
     display: grid;
-    grid-template-columns: 55% auto;
+    grid-template-rows: 10% 90%;
     gap: 10px;
     border-radius: 10px;
+    padding: 30px;
 }
 
-.box_index {
-    display: grid;
-    grid-template-rows: 10vh 80vh auto;
-    padding: 20px;
+.container_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: var(--cinza-escuro);
+    border-radius: 10px;
+    width: 100%;
     height: 100%;
-    min-height: 0; /* 🔥 ESSENCIAL para permitir que .box_index_content role */
+    padding: 5px;
 }
+
+.header_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.header_image img {
+    height: 100%;   
+    display: block; 
+}
+
+.header_text {
+    display: flex;
+    flex-direction: column;
+    color: var(--verde-pii);
+    line-height: 1.2;
+    justify-content: center;
+}
+
+.header_text_title {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 1.75rem;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+.container_content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 55% auto;
+    gap: 20px;
+}
+
+
+.content_index {
+    display: grid;
+    grid-template-rows: 8% 80% auto;
+    height: 100%;
+    min-height: 0;
+}
+
+
 
 
 
@@ -47,8 +96,10 @@ body {
    flex-direction: row;
    justify-content: flex-start;
    gap: 10px;
-   align-items: center;
+   align-items: flex-start;
 }
+
+
 
 .box_index_tab {
     border-radius: 10px;
@@ -57,12 +108,12 @@ body {
 
 .box_index_tab:hover {
     cursor: pointer;
-    background-color: #095bcf68;
+    background-color: var(--verde-pii-claro);
     /* color: white; */
 }
 
 .box_index_tab.active {
-    background-color: #0b264d;
+    background-color: var(--verde-pii-escuro);
     color: white;
 }
 
@@ -82,18 +133,19 @@ body {
 
 
 .cardAccount {
-    background-color: #e4e4e4;
+    background-color: #d4d4d4a8;
     border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    transition: transform 0.2s ease; /* animação suave */
+    gap: 0px;
+    transition: transform 0.2s ease;
 }
 
 .cardAccount:hover {
-    transform: scale(1.01); /* cresce 3% */
-    cursor: pointer;        /* opcional: indica que é clicável */
+    transform: scale(1.01);
+    cursor: pointer;
+    background-color: #8caaa456;
 }
 
 .cardAccount__description {
@@ -135,7 +187,7 @@ body {
 }
 
 .cardAccount__title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
@@ -153,26 +205,48 @@ body {
     padding: 10px 10px 0 0;
 }
 
+.btn-new {
+    background-color: var(--verde-pii-escuro);
+    color: white
+}
 
-.box_detail {
-    display: grid;
-    grid-template-rows: 10vh auto;
-
-    border-radius: 10px;
-    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
-    background-color: #b8bade;
+.btn-new:hover {
+    background-color: var(--verde-pii);
+    color: white;
 }
 
 
+.detail {
+    display: grid;
+    grid-template-rows: 7vh auto;
+    border-radius: 10px;
+    background-color: #8caaa456;
+    padding: 20px;
+    gap: 10px;
+}
 
+.detail_header {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
 
+.detail_header_title {
+    font-family: "Titillium Web", sans-serif;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
 
 
 
 /* Para navegadores baseados em WebKit */
 .box_index_content::-webkit-scrollbar {
-    width: 8px; /* largura da barra */
+    width: 0px; /* largura da barra */
 }
 
 .box_index_content::-webkit-scrollbar-track {
